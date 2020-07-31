@@ -1,0 +1,102 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<!--Bootstrap CSS/JS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'OnlineJudge/main.css' %}">
+<!-- Custom Stylesheet -->
+
+
+    <title>Online Judge</title>
+
+</head>
+<body>
+    <div class = "container-fluid">
+        <form id="codeEditor" action="/" method="post">
+                  {% csrf_token %}
+
+            <div class="row">
+                <div id="sel">
+
+                        <select name="lang" id="lang"  >
+                          <option value="C">C</option>
+                          <option value="Cpp">C++</option>
+                          <option value="Cpp14">C++14</option>
+                          <option value="Csharp">C#</option>
+                          <option value="Java">Java</option>
+                          <option value="Perl">Perl</option>
+                          <option value="Php">Php</option>
+                          <option value="Python">Python</option>
+                          <option value="Python3">Python 3</option>
+                          <option value="Scala">Scala</option>
+                        </select>
+
+                </div>
+                    <div id="code">
+                    <div class="col-lg-8">
+                        <label for="code" id="label_code">Write your code here: </label>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-12"  >
+                            <textarea id="CODE" name="code"> {{code}}</textarea>
+                        </div>
+                    </div>
+                        </div>
+
+
+
+
+                        <input type ="submit" class="btn btn-success" value="Submit" id="submit_button" onclick="submit_button()">
+
+                    <div id="iN">
+                        <div class="col-lg-12">
+                        <label for="input" id="input_label">Input:</label>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <textarea name="input" id="input">{{input}}</textarea>
+                    </div>
+                    </div>
+
+
+
+
+
+
+        </form>
+
+
+<div id="oP">
+    <div class="col-lg-12">
+                        <label  id="output_label">Output:</label>
+                    </div>
+    <div id="output">
+        <div class="alert-primary"><h5>{{Error}}</h5></div>
+
+
+    <div class="alert-primary"><h5>{{cmpError}}</h5></div>
+
+    <div class="alert-primary"><h5>{{rntError}}</h5></div>
+
+
+    <div class="alert-success"><h5>{{op}}</h5></div>
+
+
+    <div class="alert-success"><h5>{{time}}</h5></div>
+
+
+
+    </div>
+</div>
+
+
+    </body>
+</html>
